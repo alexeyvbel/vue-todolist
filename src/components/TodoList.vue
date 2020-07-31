@@ -22,6 +22,8 @@
 </script>
 
 <style scoped lang="scss">
-
+    .todo-list{
+        flex: 1
+    }
 
 </style>

@@ -3,6 +3,9 @@
     <div class="todo-wrapper">
       <div class="todo-container">
         <todo-list :todos="todos"/>
+        <div class="todo-create-btn-container">
+          <modal />
+        </div>
       </div>
     </div>
   </div>
@@ -12,12 +15,14 @@
 
 import playground from "./playground";
 import TodoList from "./components/TodoList";
+import Modal from "./components/Modal";
 
 export default {
   name: 'App',
-  components: {TodoList},
+  components: {TodoList, Modal},
   data() {
     return {
+      isModalOpen: false,
       todos: [
         {
           _id: '1',
@@ -38,6 +43,10 @@ export default {
     }
   },
 
+  methods: {
+
+  },
+
   created() {
     playground()
   }
@@ -54,7 +63,13 @@ export default {
   margin-top: 60px;
 }
 
+
+
 .todo {
+  &-create-btn-container{
+    margin: 10px;
+  }
+
   &-wrapper {
     display: flex;
     justify-content: center;
@@ -64,6 +79,8 @@ export default {
   }
 
   &-container {
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     width: 400px;
     min-height: 400px;
