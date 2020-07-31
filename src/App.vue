@@ -4,15 +4,10 @@
       <div class="todo-container">
         <todo-list :todos="todos"/>
         <div class="todo-create-btn-container">
-          <div class="app-button"
-               @click="isModalOpen = true">
-            Create
-          </div>
+          <modal />
         </div>
       </div>
     </div>
-    <modal  @modalClosed="isModalOpen = false"
-            :isOpen="isModalOpen"/>
   </div>
 </template>
 
@@ -68,18 +63,7 @@ export default {
   margin-top: 60px;
 }
 
-.app-button {
-  font-size: 20px;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #795899;
-  color: white;
-  font-weight: bold;
 
-  &:hover {
-    cursor: pointer;
-  }
-}
 
 .todo {
   &-create-btn-container{

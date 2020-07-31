@@ -1,13 +1,19 @@
 <template>
-    <div class="modal" :class="{'is-active':isOpen}">
-        <div class="modal-content">
+    <div>
+        <div class="app-button"
+             @click="isOpen = true">
+            Create
+        </div>
+        <div class="modal" :class="{'is-active':isOpen}">
+            <div class="modal-content">
             <span class="close"
-                  @click="$emit('modalClosed')">
+                  @click="isOpen = false">
                 &times;
             </span>
-            <p>
-                Modal window
-            </p>
+                <p>
+                    Modal window
+                </p>
+            </div>
         </div>
     </div>
 </template>
@@ -17,14 +23,12 @@
         name: "Modal",
         data () {
             return {
+                isOpen: false
 
             }
         },
         props: {
-            isOpen: {
-                required: true,
-                type: Boolean
-            }
+
         },
         methods: {
 
@@ -33,6 +37,19 @@
 </script>
 
 <style scoped lang="scss">
+
+    .app-button {
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #795899;
+        color: white;
+        font-weight: bold;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 
     .close {
         color: #aaa;
