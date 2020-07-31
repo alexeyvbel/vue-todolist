@@ -2,7 +2,7 @@
   <div id="app">
     <div class="todo-wrapper">
       <div class="todo-container">
-        <todo-list/>
+        <todo-list :todos="todos"/>
       </div>
     </div>
   </div>
@@ -16,6 +16,27 @@ import TodoList from "./components/TodoList";
 export default {
   name: 'App',
   components: {TodoList},
+  data() {
+    return {
+      todos: [
+        {
+          _id: '1',
+          title: 'Изуить Swift',
+          description: 'Начать изучение swift'
+        },
+        {
+          _id: '2',
+          title: 'Изуить Java',
+          description: 'Продолжить изучение javarush'
+        },
+        {
+          _id: '3',
+          title: 'Изуить VueJS',
+          description: 'Продолжить изучение VueJs'
+        }
+      ]
+    }
+  },
 
   created() {
     playground()

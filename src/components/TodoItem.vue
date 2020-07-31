@@ -2,10 +2,10 @@
     <div class="todo-item">
         <div class="todo-item-content">
             <div class="todo-item-content-title">
-                Изучить swift
+                {{title}}
             </div>
             <div class="todo-item-content-description">
-                Начать изучение swift
+                {{description}}
             </div>
         </div>
     </div>
@@ -13,7 +13,18 @@
 
 <script>
     export default {
-        name: "TodoItem"
+        name: "TodoItem",
+        props: {
+            title: {
+                type: String,
+                required: true
+            },
+            description: {
+                type: String,
+                required: false,
+                default: 'Default description'
+            }
+        }
     }
 </script>
 
