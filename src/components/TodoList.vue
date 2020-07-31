@@ -1,6 +1,7 @@
 <template>
     <div class="todo-list">
-        <todo-item/>
+        <todo-item :title="'Изучить Swift'"
+                   :description="'Начать изучение Swift'"/>
     </div>
 </template>
 
