@@ -6,13 +6,21 @@
         </div>
         <div class="modal" :class="{'is-active':isOpen}">
             <div class="modal-content">
-            <span class="close"
-                  @click="isOpen = false">
-                &times;
-            </span>
-                <p>
-                    Modal window
-                </p>
+                <span class="close"
+                      @click="isOpen = false">
+                     &times;
+                </span>
+                <form class="app-form">
+                    <div class="form-control">
+                        <label class="label">Title</label>
+                        <input class="form-input" type="text">
+                    </div>
+                    <div class="form-control">
+                        <label class="label">Description</label>
+                        <input class="form-input" type="text">
+                    </div>
+                    <button type="button" class="app-button is-primary">Confirm</button>
+                </form>
             </div>
         </div>
     </div>
@@ -38,18 +46,29 @@
 
 <style scoped lang="scss">
 
-    .app-button {
-        font-size: 20px;
-        padding: 10px;
-        border-radius: 5px;
-        background-color: #795899;
-        color: white;
-        font-weight: bold;
+    .app-form {
+        .label {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-        &:hover {
-            cursor: pointer;
+        .form-input {
+            padding: 10px;
+            font-size: 17px;
+        }
+
+        .form-input {
+            padding: 10px;
+            font-size: 19px;
+        }
+
+        .form-control {
+            margin-bottom: 10px;
         }
     }
+
+
 
     .close {
         color: #aaa;
@@ -86,5 +105,6 @@
         padding: 20px;
         border: 1px solid #888;
         width: 80%;
+        text-align: left;
     }
 </style>

@@ -53,17 +53,33 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
   margin-top: 60px;
 }
 
 
+.app-button {
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #795899;
+  color: white;
+  font-weight: bold;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.is-primary {
+  background-color: #47ca47 !important;
+}
 
 .todo {
   &-create-btn-container{
