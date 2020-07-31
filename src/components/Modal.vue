@@ -1,7 +1,13 @@
 <template>
-    <div class="modal" :class="{'is-active':isActive}">
+    <div class="modal" :class="{'is-active':isOpen}">
         <div class="modal-content">
-            Modal window
+            <span class="close"
+                  @click="$emit('modalClosed')">
+                &times;
+            </span>
+            <p>
+                Modal window
+            </p>
         </div>
     </div>
 </template>
@@ -11,13 +17,34 @@
         name: "Modal",
         data () {
             return {
-                isActive: false
+
             }
+        },
+        props: {
+            isOpen: {
+                required: true,
+                type: Boolean
+            }
+        },
+        methods: {
+
         }
     }
 </script>
 
 <style scoped lang="scss">
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        line-height: 8px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 
 
     .modal {

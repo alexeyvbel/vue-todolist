@@ -4,13 +4,15 @@
       <div class="todo-container">
         <todo-list :todos="todos"/>
         <div class="todo-create-btn-container">
-          <div class="app-button">
+          <div class="app-button"
+               @click="isModalOpen = true">
             Create
           </div>
         </div>
       </div>
     </div>
-    <modal/>
+    <modal  @modalClosed="isModalOpen = false"
+            :isOpen="isModalOpen"/>
   </div>
 </template>
 
@@ -25,6 +27,7 @@ export default {
   components: {TodoList, Modal},
   data() {
     return {
+      isModalOpen: false,
       todos: [
         {
           _id: '1',
@@ -43,6 +46,10 @@ export default {
         }
       ]
     }
+  },
+
+  methods: {
+
   },
 
   created() {
