@@ -36,10 +36,17 @@
 
             }
         },
+        computed: {
+            isFormValid(){
+                return this.form.title && this.form.description ? true : false
+            }
+        },
         methods: {
             submitForm(){
-                this.$emit('formSubmitted', {...this.form})
-                this.resertForm()
+                if (this.form.title && this.form.description) {
+                    this.$emit('formSubmitted', {...this.form})
+                    this.resertForm()
+                }
             },
 
             resertForm(){
