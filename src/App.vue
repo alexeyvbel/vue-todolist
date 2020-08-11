@@ -4,7 +4,7 @@
       <div class="todo-container">
         <todo-list :todos="todos"/>
         <div class="todo-create-btn-container">
-          <modal />
+          <todo-create @formSubmitted="createTodo"/>
         </div>
       </div>
     </div>
@@ -14,12 +14,12 @@
 <script>
 
 import playground from "./playground";
-import TodoList from "./components/TodoList";
-import Modal from "./components/Modal";
+import TodoList from "@/components/TodoList";
+import TodoCreate from "@/components/TodoCreate";
 
 export default {
   name: 'App',
-  components: {TodoList, Modal},
+  components: {TodoCreate, TodoList},
   data() {
     return {
       isModalOpen: false,
@@ -44,12 +44,18 @@ export default {
   },
 
   methods: {
-
+    createTodo(todo) {
+      this.todos.push(todo)
+    }
   },
 
   created() {
     playground()
-  }
+  },
+
+
+
+
 }
 </script>
 
@@ -76,6 +82,30 @@ export default {
     cursor: pointer;
   }
 }
+
+.app-form {
+  .label {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .form-input {
+    padding: 10px;
+    font-size: 17px;
+  }
+
+  .form-input {
+    padding: 10px;
+    font-size: 19px;
+  }
+
+  .form-control {
+    margin-bottom: 10px;
+  }
+}
+
+
 
 .is-primary {
   background-color: #47ca47 !important;
