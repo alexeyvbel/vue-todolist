@@ -69,6 +69,9 @@ export default {
   margin-top: 60px;
 }
 
+.app-error {
+  color: #ff1212
+}
 
 .app-button {
   font-size: 20px;
@@ -102,6 +105,9 @@ export default {
 
   .form-control {
     margin-bottom: 10px;
+    &-last{
+      margin-bottom: 0px;
+    }
   }
 }
 
