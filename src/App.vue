@@ -16,45 +16,26 @@
 import playground from "./playground";
 import TodoList from "@/components/TodoList";
 import TodoCreate from "@/components/TodoCreate";
+import store from "@/store";
 
 export default {
   name: 'App',
   components: {TodoCreate, TodoList},
   data() {
     return {
-      isModalOpen: false,
-      todos: [
-        {
-          _id: '1',
-          title: 'Изуить Swift',
-          description: 'Начать изучение swift'
-        },
-        {
-          _id: '2',
-          title: 'Изуить Java',
-          description: 'Продолжить изучение javarush'
-        },
-        {
-          _id: '3',
-          title: 'Изуить VueJS',
-          description: 'Продолжить изучение VueJs'
-        }
-      ]
+      todos: store.state.todos
     }
   },
 
   methods: {
     createTodo(todo) {
-      this.todos.push(todo)
+      store.dispatch('createTodo', todo)
     }
   },
 
   created() {
     playground()
   },
-
-
-
 
 }
 </script>
