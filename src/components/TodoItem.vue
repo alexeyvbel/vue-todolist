@@ -17,13 +17,13 @@
         <form class="app-form">
             <div class="form-control">
                 <label class="label">Title</label>
-                <input :value="title"
+                <input v-model="todo.title"
                        class="form-input"
                        type="text">
             </div>
             <div class="form-control form-control-last">
                 <label class="label">Description</label>
-                <textarea :value="description"
+                <textarea v-model="todo.description"
                           cols="30"
                           rows="5"
                           class="form-input"/>
@@ -37,11 +37,17 @@
 </template>
 
 <script>
+    import store from "@/store/index";
     export default {
         name: "TodoItem",
         data(){
             return {
-                editMode: false
+                editMode: false,
+                todo: {
+                    _id: this._id,
+                    title: this.title,
+                    description: this.description
+                }
             }
         },
         props: {
@@ -53,11 +59,16 @@
                 type: String,
                 required: false,
                 default: 'Default description'
+            },
+            _id: {
+                type: String,
+                required: true
             }
         },
         methods: {
             editTodo(){
-
+                this.editMode = false
+                store.dispatch('updateTodo', {...this.todo})
             },
             deleteTodo(){
 

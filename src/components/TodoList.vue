@@ -2,6 +2,7 @@
     <div class="todo-list">
         <todo-item v-for="todo in todos"
                    :key="todo._id"
+                   :_id="todo._id"
                    :title="todo.title"
                    :description="todo.description"/>
     </div>
