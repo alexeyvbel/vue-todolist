@@ -6,13 +6,11 @@
         </div>
         <div class="modal" :class="{'is-active':isOpen}">
             <div class="modal-content">
-            <span class="close"
-                  @click="isOpen = false">
-                &times;
-            </span>
-                <p>
-                    Modal window
-                </p>
+                <span class="close"
+                      @click="close">
+                     &times;
+                </span>
+                <slot/>
             </div>
         </div>
     </div>
@@ -23,33 +21,31 @@
         name: "Modal",
         data () {
             return {
-                isOpen: false
-
+                isOpen: false,
             }
         },
-        props: {
-
+        // props: {
+        //     close: {
+        //         type: Boolean,
+        //         required: false
+        //     }
+        // },
+        watch: {
+            close(isClose) {
+                if(isClose && this.isOpen) {
+                    this.isOpen = false
+                }
+            }
         },
         methods: {
-
+            close() {
+                this.isOpen = false
+            }
         }
     }
 </script>
 
 <style scoped lang="scss">
-
-    .app-button {
-        font-size: 20px;
-        padding: 10px;
-        border-radius: 5px;
-        background-color: #795899;
-        color: white;
-        font-weight: bold;
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
 
     .close {
         color: #aaa;
@@ -86,5 +82,6 @@
         padding: 20px;
         border: 1px solid #888;
         width: 80%;
+        text-align: left;
     }
 </style>
