@@ -124,7 +124,7 @@ export default {
     flex-direction: column;
     margin: 0 auto;
     width: 400px;
-    min-height: 400px;
+    min-height: 200px;
     background-color: #ededed;
     border-radius: 5px;
   }

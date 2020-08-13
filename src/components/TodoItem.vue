@@ -71,7 +71,7 @@
                 store.dispatch('updateTodo', {...this.todo})
             },
             deleteTodo(){
-
+                store.dispatch('deleteTodo', this.todo._id)
             }
         }
     }
