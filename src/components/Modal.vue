@@ -24,12 +24,6 @@
                 isOpen: false,
             }
         },
-        // props: {
-        //     close: {
-        //         type: Boolean,
-        //         required: false
-        //     }
-        // },
         watch: {
             close(isClose) {
                 if(isClose && this.isOpen) {

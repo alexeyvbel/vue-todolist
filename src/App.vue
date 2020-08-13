@@ -13,48 +13,28 @@
 
 <script>
 
-import playground from "./playground";
 import TodoList from "@/components/TodoList";
 import TodoCreate from "@/components/TodoCreate";
+import store from "@/store";
 
 export default {
   name: 'App',
   components: {TodoCreate, TodoList},
   data() {
     return {
-      isModalOpen: false,
-      todos: [
-        {
-          _id: '1',
-          title: 'Изуить Swift',
-          description: 'Начать изучение swift'
-        },
-        {
-          _id: '2',
-          title: 'Изуить Java',
-          description: 'Продолжить изучение javarush'
-        },
-        {
-          _id: '3',
-          title: 'Изуить VueJS',
-          description: 'Продолжить изучение VueJs'
-        }
-      ]
+      todos: store.state.todos
     }
   },
 
   methods: {
     createTodo(todo) {
-      this.todos.push(todo)
+      store.dispatch('createTodo', todo)
     }
   },
 
   created() {
-    playground()
+    this.todos = store.dispatch('initStore' )
   },
-
-
-
 
 }
 </script>
@@ -117,6 +97,14 @@ export default {
   background-color: #47ca47 !important;
 }
 
+.is-warning {
+  background-color: #ffa753 !important;
+}
+
+.is-danger {
+  background-color: #ff5a5a !important;
+}
+
 .todo {
   &-create-btn-container{
     margin: 10px;
@@ -135,7 +123,7 @@ export default {
     flex-direction: column;
     margin: 0 auto;
     width: 400px;
-    min-height: 400px;
+    min-height: 200px;
     background-color: #ededed;
     border-radius: 5px;
   }
