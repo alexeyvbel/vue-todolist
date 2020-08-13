@@ -8,6 +8,10 @@
                 {{description}}
             </div>
         </div>
+        <button class="app-button is-warning"
+                @click="editTodo">Edit</button>
+        <button class="app-button is-danger"
+                @click="deleteTodo">Delete</button>
     </div>
 </template>
 
@@ -24,11 +28,26 @@
                 required: false,
                 default: 'Default description'
             }
+        },
+        methods: {
+            editTodo(){
+
+            },
+            deleteTodo(){
+
+            }
         }
     }
 </script>
 
 <style scoped lang="scss">
+    .app-button {
+        font-size: 15px;
+        .is-warning{
+            margin-right: 5px;
+        }
+    }
+
     .todo {
         &-item {
              background-color: gray;
@@ -39,6 +58,7 @@
              border-radius: 5px;
              font-size: 23px;
         &-content {
+            margin-bottom: 10px;
         &-title {
              font-weight: bold;
          }
